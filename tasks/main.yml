@@ -1,0 +1,23 @@
+---
+
+- name: Install OS dependencies
+  sudo: yes
+  apt: name={{ item }} update_cache=yes
+  with_items: "{{ project_os_packages }}"
+
+- name: Clone the repository
+  sudo: no
+  git: |
+    repo={{ project_repo }}
+    dest={{ project_path }}
+    version=master
+    accept_hostkey=yes
+  when: project_repo
+
+- name: Install via PIP and virtualenv
+  sudo: no
+  pip: |
+    chdir={{ project_path }}
+    virtualenv={{ project_virtualenv_path }}
+    virtualenv_command={{ virtualenv_bin_path }}
+    requirements={{ project_requirements_path }}
