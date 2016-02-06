@@ -1,0 +1,10 @@
+---
+
+project_user: '{{ ansible_ssh_user }}'
+project_repo: no
+project_path: /home/{{ project_user }}/project
+project_os_packages: []
+project_requirements_path: requirements.txt
+project_virtualenv_path: "{{ project_path }}/.venv"
+
+virtualenv_bin_path: /usr/local/bin/virtualenv
