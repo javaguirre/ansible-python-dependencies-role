@@ -9,3 +9,7 @@ Ansible role to manage Python project dependencies
   any path in your system
 - Example of functionality with cloned repo and without It
 - Example using pyenv and virtualenv
+
+- Test with pyenv and virtualenv
+- Use another role to have virtualenv or pyenv installed
+- Add role to Galaxy
